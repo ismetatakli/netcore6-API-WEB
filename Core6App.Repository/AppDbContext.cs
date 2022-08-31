@@ -1,4 +1,4 @@
-﻿using Core6App.Core;
+﻿using Core6App.Core.Models;
 using Microsoft.EntityFrameworkCore;
 using System.Reflection;
 

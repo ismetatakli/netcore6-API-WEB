@@ -1,14 +1,8 @@
 ﻿using Core6App.Core.Repositories;
 using Core6App.Core.Services;
 using Core6App.Core.UnitOfWorks;
-using Core6App.Repository.UnitOfWorks;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Linq.Expressions;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Core6App.Service.Services
 {

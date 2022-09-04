@@ -11,17 +11,21 @@ namespace Core6App.Repository.Repositories
 {
     public class GenericRepository<T> : IGenericRepository<T> where T : class
     {
-        protected readonly AppDbContext _dbContext;
+        protected readonly AppDbContext _context;
         private readonly DbSet<T> _dbSet;
 
-        public GenericRepository(AppDbContext dbContext,DbSet<T> dbSet)
+        public GenericRepository(AppDbContext context)
         {
-            _dbContext = dbContext;
-            _dbSet = dbContext.Set<T>();
+            _context = context;
+            _dbSet = _context.Set<T>();
         }
+
         public async Task AddAsync(T entity)
         {
+
             await _dbSet.AddAsync(entity);
+
+
         }
 
         public async Task AddRangeAsync(IEnumerable<T> entities)
@@ -46,6 +50,7 @@ namespace Core6App.Repository.Repositories
 
         public void Remove(T entity)
         {
+
             _dbSet.Remove(entity);
         }
 

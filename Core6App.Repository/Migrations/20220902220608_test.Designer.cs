@@ -4,6 +4,7 @@ using Core6App.Repository;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Core6App.Repository.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20220902220608_test")]
+    partial class test
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -105,7 +107,7 @@ namespace Core6App.Repository.Migrations
                         {
                             Id = 1,
                             CategoryId = 1,
-                            CreatedDate = new DateTime(2022, 9, 3, 1, 12, 3, 195, DateTimeKind.Local).AddTicks(9447),
+                            CreatedDate = new DateTime(2022, 9, 3, 1, 6, 8, 122, DateTimeKind.Local).AddTicks(4703),
                             Name = "Kalem1",
                             Price = 100m,
                             Stock = 20
@@ -114,7 +116,7 @@ namespace Core6App.Repository.Migrations
                         {
                             Id = 2,
                             CategoryId = 1,
-                            CreatedDate = new DateTime(2022, 9, 3, 1, 12, 3, 195, DateTimeKind.Local).AddTicks(9455),
+                            CreatedDate = new DateTime(2022, 9, 3, 1, 6, 8, 122, DateTimeKind.Local).AddTicks(4716),
                             Name = "Kalem 2",
                             Price = 200m,
                             Stock = 30
@@ -123,7 +125,7 @@ namespace Core6App.Repository.Migrations
                         {
                             Id = 3,
                             CategoryId = 1,
-                            CreatedDate = new DateTime(2022, 9, 3, 1, 12, 3, 195, DateTimeKind.Local).AddTicks(9456),
+                            CreatedDate = new DateTime(2022, 9, 3, 1, 6, 8, 122, DateTimeKind.Local).AddTicks(4717),
                             Name = "Kalem 3",
                             Price = 400m,
                             Stock = 30
@@ -132,7 +134,7 @@ namespace Core6App.Repository.Migrations
                         {
                             Id = 4,
                             CategoryId = 2,
-                            CreatedDate = new DateTime(2022, 9, 3, 1, 12, 3, 195, DateTimeKind.Local).AddTicks(9456),
+                            CreatedDate = new DateTime(2022, 9, 3, 1, 6, 8, 122, DateTimeKind.Local).AddTicks(4718),
                             Name = "Kitap 1",
                             Price = 200m,
                             Stock = 30
@@ -141,7 +143,7 @@ namespace Core6App.Repository.Migrations
                         {
                             Id = 5,
                             CategoryId = 2,
-                            CreatedDate = new DateTime(2022, 9, 3, 1, 12, 3, 195, DateTimeKind.Local).AddTicks(9457),
+                            CreatedDate = new DateTime(2022, 9, 3, 1, 6, 8, 122, DateTimeKind.Local).AddTicks(4719),
                             Name = "Kitap 2",
                             Price = 700m,
                             Stock = 10

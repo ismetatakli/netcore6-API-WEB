@@ -12,6 +12,7 @@ namespace Core6App.Service.Mappings
             CreateMap<Category,CategoryDto>().ReverseMap();
             CreateMap<ProductFeature, ProductFeatureDto>().ReverseMap();
             CreateMap<ProductUpdateDto, Product>();
+            CreateMap<Product, ProductWithCategoryDto>();
         }
     }
 }

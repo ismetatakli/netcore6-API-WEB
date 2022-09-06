@@ -1,3 +1,5 @@
+using Core6App.Core.DTOs;
+using Core6App.Core.Models;
 using Core6App.Core.Repositories;
 using Core6App.Core.Services;
 using Core6App.Core.UnitOfWorks;
@@ -6,14 +8,18 @@ using Core6App.Repository.Repositories;
 using Core6App.Repository.UnitOfWorks;
 using Core6App.Service.Mappings;
 using Core6App.Service.Services;
+using Core6App.Service.Validations;
+using FluentValidation;
+using FluentValidation.AspNetCore;
 using Microsoft.EntityFrameworkCore;
+using System;
 using System.Reflection;
 
 var builder = WebApplication.CreateBuilder(args);
 // Configuration
 // Add services to the container.
 
-builder.Services.AddControllers();
+builder.Services.AddControllers().AddFluentValidation(x=>x.RegisterValidatorsFromAssemblyContaining<ProductDtoValidator>());
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();

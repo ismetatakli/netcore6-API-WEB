@@ -1,0 +1,27 @@
+﻿using AutoMapper;
+using Core6App.Core.DTOs;
+using Core6App.Core.Models;
+using Core6App.Core.Repositories;
+using Core6App.Core.Services;
+using Core6App.Core.UnitOfWorks;
+
+namespace Core6App.Service.Services
+{
+    public class CategoryService : Service<Category>, ICategoryService
+    {
+        private readonly ICategoryRepository _categoryRepository;
+        private readonly IMapper _mapper;
+        public CategoryService(IGenericRepository<Category> repository, IUnitOfWork unitOfWork, IMapper mapper, ICategoryRepository categoryRepository) : base(repository, unitOfWork)
+        {
+            _mapper = mapper;
+            _categoryRepository = categoryRepository;
+        }
+
+        public async Task<CustomResponseDto<CategoryWithProductsDto>> GetSingleCategoryByIdWithProductsAsync(int categoryId)
+        {
+            var category = await _categoryRepository.GetSingleCategoryByIdWithProductsAsync(categoryId);
+            var catDto = _mapper.Map<CategoryWithProductsDto>(category);
+            return CustomResponseDto<CategoryWithProductsDto>.Success(200, catDto);
+        }
+    }
+}

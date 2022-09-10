@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Core6App.API.Filters;
 using Core6App.Core.DTOs;
 using Core6App.Core.Models;
 using Core6App.Core.Services;
@@ -32,7 +33,7 @@ namespace Core6App.API.Controllers
 
             return CreateActionResult(CustomResponseDto<List<ProductDto>>.Success(200, prodductDtos));
         }
-
+        [ServiceFilter(typeof(NotFoundFilter<Product>))]
         [HttpGet("{id}")]
         public async Task<IActionResult> GetById(int id)
         {
@@ -58,7 +59,7 @@ namespace Core6App.API.Controllers
 
             return CreateActionResult(CustomResponseDto<NoContentDto>.Success(204));
         }
-
+        [ServiceFilter(typeof(NotFoundFilter<Product>))]
         [HttpDelete("{id}")]
         public async Task<IActionResult> Remove(int id)
         {

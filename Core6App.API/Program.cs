@@ -1,4 +1,5 @@
 using Core6App.API.Filters;
+using Core6App.API.Middlewares;
 using Core6App.Core.DTOs;
 using Core6App.Core.Models;
 using Core6App.Core.Repositories;
@@ -58,6 +59,8 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+
+app.UseCustomException();
 
 app.UseAuthorization();
 

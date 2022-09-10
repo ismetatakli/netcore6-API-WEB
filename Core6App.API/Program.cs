@@ -1,5 +1,8 @@
+using Autofac;
+using Autofac.Extensions.DependencyInjection;
 using Core6App.API.Filters;
 using Core6App.API.Middlewares;
+using Core6App.API.Modules;
 using Core6App.Core.Repositories;
 using Core6App.Core.Services;
 using Core6App.Core.UnitOfWorks;
@@ -24,15 +27,7 @@ builder.Services.Configure<ApiBehaviorOptions>(options => {
 });
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
-
 builder.Services.AddScoped(typeof(NotFoundFilter<>));
-builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
-builder.Services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
-builder.Services.AddScoped(typeof(IService<>), typeof(Service<>));
-builder.Services.AddScoped<IProductRepository, ProductRepository>();
-builder.Services.AddScoped<IProductService, ProductService>();
-builder.Services.AddScoped<ICategoryRepository, CategoryRepository>();
-builder.Services.AddScoped<ICategoryService, CategoryService>();
 builder.Services.AddAutoMapper(typeof(MapProfile));
 
 
@@ -45,7 +40,8 @@ builder.Services.AddDbContext<AppDbContext>(x =>
 });
 
 
-
+builder.Host.UseServiceProviderFactory(new AutofacServiceProviderFactory());
+builder.Host.ConfigureContainer<ContainerBuilder>(cBuilder => cBuilder.RegisterModule(new RepoServiceModule()));
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

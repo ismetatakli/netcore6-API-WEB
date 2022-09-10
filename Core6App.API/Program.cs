@@ -1,7 +1,5 @@
 using Core6App.API.Filters;
 using Core6App.API.Middlewares;
-using Core6App.Core.DTOs;
-using Core6App.Core.Models;
 using Core6App.Core.Repositories;
 using Core6App.Core.Services;
 using Core6App.Core.UnitOfWorks;
@@ -11,11 +9,9 @@ using Core6App.Repository.UnitOfWorks;
 using Core6App.Service.Mappings;
 using Core6App.Service.Services;
 using Core6App.Service.Validations;
-using FluentValidation;
 using FluentValidation.AspNetCore;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using System;
 using System.Reflection;
 
 var builder = WebApplication.CreateBuilder(args);

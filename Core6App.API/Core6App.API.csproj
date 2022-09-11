@@ -16,7 +16,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Core6App.Service\Core6App.Service.csproj" />
+    <ProjectReference Include="..\Core6App.Caching\Core6App.Caching.csproj" />
   </ItemGroup>
 
 </Project>

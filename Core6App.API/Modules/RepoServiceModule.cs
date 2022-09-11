@@ -1,4 +1,5 @@
 ﻿using Autofac;
+using Core6App.Caching;
 using Core6App.Core.Repositories;
 using Core6App.Core.Services;
 using Core6App.Core.UnitOfWorks;
@@ -17,9 +18,7 @@ namespace Core6App.API.Modules
         {
             builder.RegisterGeneric(typeof(GenericRepository<>)).As(typeof(IGenericRepository<>)).InstancePerLifetimeScope();
             builder.RegisterGeneric(typeof(Service<>)).As(typeof(IService<>)).InstancePerLifetimeScope();
-
             builder.RegisterType<UnitOfWork>().As<IUnitOfWork>();
-
             var apiAssembly = Assembly.GetExecutingAssembly();
             var repoAssembly = Assembly.GetAssembly(typeof(AppDbContext));
             var serviceAssembly = Assembly.GetAssembly(typeof(MapProfile));
@@ -27,6 +26,7 @@ namespace Core6App.API.Modules
                 .AsImplementedInterfaces().InstancePerLifetimeScope();
             builder.RegisterAssemblyTypes(apiAssembly, repoAssembly, serviceAssembly).Where(x => x.Name.EndsWith("Service"))
                 .AsImplementedInterfaces().InstancePerLifetimeScope();
+            builder.RegisterType<ProductServiceWithCaching>().As<IProductService>();
         }
     }
 }

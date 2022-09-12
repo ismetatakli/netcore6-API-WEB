@@ -7,6 +7,7 @@ using Core6App.Core.UnitOfWorks;
 using Core6App.Service.Exceptions;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Caching.Memory;
+using System.Collections.Generic;
 using System.Linq.Expressions;
 
 namespace Core6App.Caching
@@ -67,11 +68,11 @@ namespace Core6App.Caching
             return Task.FromResult(product);
         }
 
-        public Task<CustomResponseDto<List<ProductWithCategoryDto>>> GetProductsWithCategory()
+        public Task<List<ProductWithCategoryDto>> GetProductsWithCategory()
         {
             var products = _memoryCache.Get<IEnumerable<Product>>(CacheProductKey);
             var productswithcategoryDto = _mapper.Map<List<ProductWithCategoryDto>>(products);
-            return Task.FromResult(CustomResponseDto<List<ProductWithCategoryDto>>.Success(200, productswithcategoryDto));
+            return Task.FromResult(productswithcategoryDto);
         }
 
         public async Task RemoveAsync(Product entity)

@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Mvc.Filters;
 
 namespace Core6App.Web
 {
-    public class NotFoundFilter<T> : IAsyncActionFilter where T:BaseEntity
+    public class NotFoundFilter<T> : IAsyncActionFilter where T : BaseEntity
     {
         private readonly IService<T> _service;
 
@@ -33,7 +33,7 @@ namespace Core6App.Web
             var errorViewModel = new ErrorViewModel();
             errorViewModel.Errors.Add($"{typeof(T).Name}({id}) not found");
 
-            context.Result = new RedirectToActionResult("Error","Home",errorViewModel);
+            context.Result = new RedirectToActionResult("Error", "Home", errorViewModel);
         }
     }
 }

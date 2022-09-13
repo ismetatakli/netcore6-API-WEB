@@ -53,7 +53,7 @@ namespace Core6App.Web.Controllers
             var product = await _productService.GetByIdAsync(id);
             var categories = await _categoryService.GetAllAsync();
             var categoriesDto = _mapper.Map<List<CategoryDto>>(categories.ToList());
-            ViewBag.categories = new SelectList(categoriesDto, "Id", "Name",product.CategoryId);
+            ViewBag.categories = new SelectList(categoriesDto, "Id", "Name", product.CategoryId);
             return View(_mapper.Map<ProductDto>(product));
         }
 

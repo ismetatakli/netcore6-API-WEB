@@ -1,6 +1,5 @@
 ﻿using Core6App.Core.DTOs;
 using Microsoft.AspNetCore.Mvc;
-using System.Diagnostics;
 
 namespace Core6App.Web.Controllers
 {

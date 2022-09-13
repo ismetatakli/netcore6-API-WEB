@@ -16,4 +16,8 @@
     <ProjectReference Include="..\Core6App.Service\Core6App.Service.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Models\" />
+  </ItemGroup>
+
 </Project>

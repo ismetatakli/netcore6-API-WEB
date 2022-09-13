@@ -3,6 +3,7 @@ using Autofac.Extensions.DependencyInjection;
 using Core6App.Repository;
 using Core6App.Service.Mappings;
 using Core6App.Service.Validations;
+using Core6App.Web;
 using Core6App.Web.Modules;
 using FluentValidation.AspNetCore;
 using Microsoft.EntityFrameworkCore;
@@ -20,12 +21,13 @@ builder.Services.AddDbContext<AppDbContext>(x => x.UseSqlServer(builder.Configur
 builder.Services.AddAutoMapper(typeof(MapProfile));
 builder.Host.UseServiceProviderFactory(new AutofacServiceProviderFactory());
 builder.Host.ConfigureContainer<ContainerBuilder>(conBuilder => conBuilder.RegisterModule(new RepoServiceModule()));
+builder.Services.AddScoped(typeof(NotFoundFilter<>));
 var app = builder.Build();
-
+app.UseExceptionHandler("/Home/Error");
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
 {
-    app.UseExceptionHandler("/Home/Error");
+    
     // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
     app.UseHsts();
 }

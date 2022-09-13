@@ -11,7 +11,7 @@ using System.Reflection;
 using Module = Autofac.Module;
 namespace Core6App.Web.Modules
 {
-    public class RepoServiceModule:Module
+    public class RepoServiceModule : Module
     {
         protected override void Load(ContainerBuilder builder)
         {

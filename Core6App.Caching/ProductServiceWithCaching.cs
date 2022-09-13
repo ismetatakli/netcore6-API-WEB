@@ -7,7 +7,6 @@ using Core6App.Core.UnitOfWorks;
 using Core6App.Service.Exceptions;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Caching.Memory;
-using System.Collections.Generic;
 using System.Linq.Expressions;
 
 namespace Core6App.Caching

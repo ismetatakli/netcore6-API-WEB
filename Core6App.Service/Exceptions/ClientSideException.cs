@@ -1,14 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Core6App.Service.Exceptions
+﻿namespace Core6App.Service.Exceptions
 {
     public class ClientSideException : Exception
     {
-        public ClientSideException(string message): base(message)
+        public ClientSideException(string message) : base(message)
         {
 
         }

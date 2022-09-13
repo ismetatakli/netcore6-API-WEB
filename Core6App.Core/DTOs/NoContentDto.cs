@@ -9,7 +9,7 @@ namespace Core6App.Core.DTOs
         public int StatusCode { get; set; }
         public static NoContentDto Success(int statusCode)
         {
-            return new NoContentDto { StatusCode = statusCode};
+            return new NoContentDto { StatusCode = statusCode };
         }
         public static NoContentDto Fail(int statusCode, List<string> errors)
         {

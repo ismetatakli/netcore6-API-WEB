@@ -1,9 +1,4 @@
 ﻿using Core6App.Core.UnitOfWorks;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Core6App.Repository.UnitOfWorks
 {
